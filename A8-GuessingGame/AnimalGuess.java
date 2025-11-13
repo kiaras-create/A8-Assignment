@@ -32,7 +32,7 @@ public static boolean getYesOrNo(String question){
     //Loop for valid input (yes/y, no/n)
     while(true){
 
-         //Prints the question for the user plus two options answer to choose (yes/no)
+         //Prints the question for the user plus two answer options (yes/no)
         System.out.println(question + "(yes/no):");
 
         String input = scanner.nextLine();
