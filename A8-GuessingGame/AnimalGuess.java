@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 /**
- *  
+ * This class has some helper methods for getting user input in the AnimalGuess game.
+ * It reads input (including yes/no) and keeps the game from breaking if the user enters something other than yes/no.
+
  */
 public class AnimalGuess{
 
@@ -9,27 +11,44 @@ public class AnimalGuess{
     public static Scanner scanner = new Scanner(System.in);
 
     /**
+     * Read a line of input with handling the error
      * 
-     * @param question the question to display for user
+     * @param question the question to display to the user
      * @return user input
      */
     public static String readLine(String question){
-        System.out.println(question);
+        System.out.print(question); //Prints the question for the user
         String input = ""; //empty string placeholder
+        while(true){
+            try{
+                input = scanner.nextLine();
 
+                //Checks for empty input
+                if (input.isEmpty()){
+                    throw new IllegalArgumentException("Input cannot be empty");
+                }
+                break;
+            } catch (IllegalArgumentException e){
+                System.out.println("Please try again");
+                System.out.println(question); //Prints the question again
+            }
+        }
         return input;
     }
 
+    
+
 /**
- * Asks the user a yes/no question and handles wrong input by asking for input again and again until entered a valid input
- * it accepts yes, y, no, or n
+ * Asks the user a yes/no question and handles invalid input by asking for input again and again until entered a valid input
+ * it accepts 'yes', 'y', 'no', or 'n'
+ * Responds gracefully to invalid inputs
  * 
  * @param question the yes/no question to ask the user
- * @return true boolean value for yes/y input and false boolean value for no/n input
+ * @return true if the user answers 'yes' or 'y' and false if 'no' or 'n'
  */
 public static boolean getYesOrNo(String question){
 
-    //Loop for valid input (yes/y, no/n)
+    //Loop for until valid input (yes/y, no/n) received
     while(true){
 
          //Prints the question for the user plus two answer options (yes/no)
