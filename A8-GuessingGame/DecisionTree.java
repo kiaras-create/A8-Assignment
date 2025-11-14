@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+
 public class DecisionTree extends BinaryTree<String>{
 
     
@@ -61,24 +62,6 @@ public class DecisionTree extends BinaryTree<String>{
      */
     public void setRight(DecisionTree right) {
         super.setRight(right);
-    }
-
-    //Sample decision tree with 7 nodes
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        DecisionTree cow = new DecisionTree("Cow");
-        DecisionTree pig = new DecisionTree("Pig");
-        DecisionTree snake = new DecisionTree("Snake");
-        DecisionTree lizard = new DecisionTree("Lizard");
-
-        DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, pig);
-        DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, lizard);
-
-        DecisionTree root = new DecisionTree("Is it a mammal?", hooves, reptile );
-
-        System.out.println(root.getLeft().getRight().getData());
     }
 
     /**
