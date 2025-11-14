@@ -78,7 +78,7 @@ public static boolean getYesOrNo(String question){
 
         boolean answer = getYesOrNo("Is your animal a Crocodile?");
         if (answer){
-            System.out.println("Ok, nice.");
+            System.out.println("Wow that's cool.");
         } else{
             System.out.println("Hm, I see.");
         }
