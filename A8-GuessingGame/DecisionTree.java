@@ -29,30 +29,42 @@ public class DecisionTree extends BinaryTree<String>{
         return current;    
         }
 
-        public void writeTree(String fileName){
+    public void writeTree(String fileName){
         BinaryTree<String> current = this;
         // Create a node queue
         java.util.LinkedList<BinaryTree<String>> nodeQueue = new java.util.LinkedList<>();
-        java.util.LinkedList<BinaryTree<String>> pathQueue = new java.util.LinkedList<>();
+        java.util.LinkedList<String> pathQueue = new java.util.LinkedList<>();
+        java.util.ArrayList<String> finalLines = new java.util.ArrayList<>();
         // boolean[] visited = new boolean[V];
         //Add first node to linked list 
         nodeQueue.addLast(this);
+        pathQueue.addLast("");
         while (!nodeQueue.isEmpty()){
             BinaryTree<String> currentNode = nodeQueue.removeFirst();
-            pathQueue.addLast(currentNode);
+            String currentPath = pathQueue.removeFirst();
             if(currentNode.getLeft() != null){
                 nodeQueue.addLast(currentNode.getLeft());
+                String leftPath = currentPath + "L";
+                pathQueue.add(leftPath);
             } 
             if(currentNode.getRight() != null){
                 nodeQueue.addLast(currentNode.getRight());
+                String rightPath = currentPath + "R";
+                pathQueue.add(rightPath);
             }
+            String finalPath = currentPath + " " + currentNode.getData();
+            finalLines.add(finalPath);
         }
+
+
         try {
         PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
-        while(!pathQueue.isEmpty()){
-            out.println(pathQueue.removeFirst().toString());
+        for (int i = 0; i < finalLines.size(); i++){
+            out.println(finalLines.get(i));
         }
+            
+    
         out.close();
         }
         catch (IOException e) {
@@ -60,7 +72,12 @@ public class DecisionTree extends BinaryTree<String>{
 
 
         }
-    }
+           
+            
+        }
+        
+
+    
     
     public void readTree(String fileName){
 
