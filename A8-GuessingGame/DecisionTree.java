@@ -4,9 +4,82 @@ import java.io.PrintWriter;
 
 public class DecisionTree extends BinaryTree<String>{
 
+    
+    /**
+     * @param data
+     */
     public DecisionTree(String data){
         super(data);
     }
+    /**
+     * @param data
+     * @param left
+     * @param right
+     */
+    public DecisionTree(String data, BinaryTree<String> left, BinaryTree<String> right) {
+        super(data, left, right);
+    }
+
+    /**
+     * @param other
+     */
+    public DecisionTree(DecisionTree other) {
+        super(other);
+    }
+
+    // overwriting specialized methods
+    @Override
+     public DecisionTree getLeft() {
+        return (DecisionTree) super.getLeft();
+    }
+
+    @Override
+    public DecisionTree getRight() {
+        return (DecisionTree) super.getRight();
+    }
+
+    @Override
+    public void setLeft(BinaryTree<String> left) {
+        super.setLeft(left);
+    }
+
+    /**
+     * @param left
+     */
+    public void setLeft(DecisionTree left) {
+        super.setRight(left);
+    }
+
+    @Override
+    public void setRight(BinaryTree<String> right) {
+            super.setRight(right);
+    }
+
+    /**
+     * @param right
+     */
+    public void setRight(DecisionTree right) {
+        super.setRight(right);
+    }
+
+    //Sample decision tree with 7 nodes
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        DecisionTree cow = new DecisionTree("Cow");
+        DecisionTree pig = new DecisionTree("Pig");
+        DecisionTree snake = new DecisionTree("Snake");
+        DecisionTree lizard = new DecisionTree("Lizard");
+
+        DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, pig);
+        DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, lizard);
+
+        DecisionTree root = new DecisionTree("Is it a mammal?", hooves, reptile );
+
+        System.out.println(root.getLeft().getRight().getData());
+    }
+
     /**
      * 
      * @param path
@@ -84,5 +157,9 @@ public class DecisionTree extends BinaryTree<String>{
     }
 
     }
+
+    
+
+
 
     

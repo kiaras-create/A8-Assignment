@@ -126,40 +126,5 @@ public class BinaryTree<E> {
         }
     }
 
-    public void writeTree(String fileName){
-        BinaryTree<E> current = this;
-        // Create a node queue
-        java.util.LinkedList<BinaryTree<E>> nodeQueue = new java.util.LinkedList<>();
-        java.util.LinkedList<BinaryTree<E>> pathQueue = new java.util.LinkedList<>();
-        // boolean[] visited = new boolean[V];
-        //Add first node to linked list 
-        nodeQueue.addLast(this);
-        while (!nodeQueue.isEmpty()){
-            BinaryTree<E> currentNode = nodeQueue.removeFirst();
-            pathQueue.addLast(currentNode);
-            if(currentNode.getLeft() != null){
-                nodeQueue.addLast(currentNode.getLeft());
-            } 
-            if(currentNode.getRight() != null){
-                nodeQueue.addLast(currentNode.getRight());
-            }
-        }
-        try {
-        PrintWriter out = new PrintWriter(new FileWriter(fileName));
-
-        while(!pathQueue.isEmpty()){
-            out.println(pathQueue.removeFirst().toString());
-        }
-        out.close();
-        }
-        catch (IOException e) {
-            System.out.println("Problem writing the file: " + e.getMessage());
-
-
-        }
-    }
-    
-    public void readTree(String fileName){
-
-    }
+   
 }
