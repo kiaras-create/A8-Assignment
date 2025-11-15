@@ -11,9 +11,9 @@ your work, please indicate the status of each item
 
 ## Assignment Points:
 
-_____ 1 pt: Class DecisionTree is a correctly designed subclass of BinaryTree
+_YES____ 1 pt: Class DecisionTree is a correctly designed subclass of BinaryTree
 
-_____ 1 pt: Method followPath correctly returns the indicated node of a decision tree
+__YES___ 1 pt: Method followPath correctly returns the indicated node of a decision tree
 
 _____ 2 pts: Plays a game that moves correctly through the tree to a guess
 
@@ -23,29 +23,29 @@ _____ 1 pt: User interaction is clear & follows instructions
 
 _____ 1 pt: Implemented method to write tree correctly to file in breadth-first order
 
-_____ 1 pt: Implemented method to read tree correctly from file
+__YES___ 1 pt: Implemented method to read tree correctly from file
 
 _____ 1 pt: Game plays using tree from file and updates it before exiting
 
 
 ## General Items:
 
-_____ 4 pts: Program compiles without errors or warnings
+__YES___ 4 pts: Program compiles without errors or warnings
 
 _____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__YES___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      __YES___ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      _YES____ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      __YES___ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      _YES____ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      _YES____ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed checklist file)
+_YES____ 1 pt: All required files included with submission (including completed checklist file)
 
-_____ 1 pt: readme.md contains reflection on the assignment
+___YES__ 1 pt: readme.md contains reflection on the assignment
