@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class AnimalGuess {
 
     /**
-     * handles responses to nonsensical inputs 
+     * handles responses to nonsensical inputs
+     * 
      * @param input
      * @return nothing
      */
@@ -13,16 +14,18 @@ public class AnimalGuess {
         // if input doesn't equal yes or no, then ask player to reenter answer
         if ((!input.equals("yes")) || (!input.equals("no"))) {
             System.out.println("Please reenter your answer.");
-            // TO-DO: potentially redirect this code to the scanner in whichever method it is from/relevant
-            // call shakila's method that elicits a yes/no answer from user w/same question being asked
-        } 
+            // TO-DO: potentially redirect this code to the scanner in whichever method it
+            // is from/relevant
+            // call shakila's method that elicits a yes/no answer from user w/same question
+            // being asked
+        }
     }
-
 
     /**
      * extends decision tree when program fails to guess correct animal
      * method occurs after program guesses and answer is no
-     * @param node, the leaf node that contains the incorrect answer 
+     * 
+     * @param node, the leaf node that contains the incorrect answer
      * @return nothing
      */
     private static void extendDecisionTree(String wrongAnimal, BinaryTree<String> node) {
@@ -46,12 +49,12 @@ public class AnimalGuess {
             node.setLeft(lChild);
             // BinaryTree<String> rChild = new BinaryTree<>(wrongAnimal);
             // node.setRight(rChild);
-          // if answer is no, create right child w/user's animal
+            // if answer is no, create right child w/user's animal
         } else if (answer.equals("no")) {
             BinaryTree<String> rChild = new BinaryTree<>(correctAnimal);
             node.setLeft(rChild);
             // BinaryTree<String> lChild = new BinaryTree<>(wrongAnimal);
-          // otherwise, call handlingResponses method to handle nonsensical inputs
+            // otherwise, call handlingResponses method to handle nonsensical inputs
         } else {
             handlingResponses(answer);
         }
