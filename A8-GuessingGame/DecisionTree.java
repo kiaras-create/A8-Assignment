@@ -191,8 +191,8 @@ public class DecisionTree extends BinaryTree<String> {
         DecisionTree snake = new DecisionTree("Snake");
         DecisionTree lizard = new DecisionTree("Lizard");
 
-        DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, pig);
-        DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, lizard);
+        DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, lizard);
+        DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, pig);
 
         DecisionTree root = new DecisionTree("Is it a mammal?", hooves, reptile);
 
