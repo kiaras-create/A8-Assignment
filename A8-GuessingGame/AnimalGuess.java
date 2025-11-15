@@ -1,14 +1,63 @@
 import java.util.Scanner;
 
-/**
- * This class has some helper methods for getting user input in the AnimalGuess game.
- * It reads input (including yes/no) and keeps the game from breaking if the user enters something other than yes/no.
-
- */
-public class AnimalGuess{
+public class AnimalGuess {
 
     //Reads user input
     public static Scanner scanner = new Scanner(System.in);
+
+    /**
+     * handles responses to nonsensical inputs
+     * 
+     * @param input
+     * @return nothing
+     */
+    // private static void handlingResponses(String input) {
+    //     // converts input to all lowercase
+    //     input.toLowerCase();
+    //     // if input doesn't equal yes or no, then ask player to reenter answer
+    //     if ((!input.equals("yes")) || (!input.equals("no"))) {
+    //         System.out.println("Please reenter your answer.");
+    //         // TO-DO: potentially redirect this code to the scanner in whichever method it
+    //         // is from/relevant
+    //         // call shakila's method that elicits a yes/no answer from user w/same question
+    //         // being asked
+    //     }
+    // }
+
+/**
+ * Asks the user a yes/no question and handles invalid input by asking for input again and again until entered a valid input
+ * it accepts 'yes', 'y', 'no', or 'n'
+ * Responds gracefully to invalid inputs
+ * 
+ * @param question the yes/no question to ask the user
+ * @return true if the user answers 'yes' or 'y' and false if 'no' or 'n'
+ */
+public static boolean getYesOrNo(String question){
+
+    //Loop for until valid input (yes/y, no/n) received
+    while(true) {
+
+         //Prints the question for the user plus two answer options (yes/no)
+        System.out.println(question + "(yes/no):");
+
+        String input = scanner.nextLine();
+
+        //convert the input to lowercase letter
+        input = input.toLowerCase();
+
+        //Check if the input is yes
+        if (input.equals("yes") || input.equals("y")){
+            return true;
+
+        //Check if the input is no
+        } else if (input.equals("no") || input.equals("n")){
+            return false;
+        } else {
+
+            //Prints a message if invalid answer entered
+            System.out.println("Please answer with yes or no"); 
+        }
+    }}
 
     /**
      * Read a line of input with handling the error
@@ -36,76 +85,6 @@ public class AnimalGuess{
         return input;
     }
 
-    
-
-/**
- * Asks the user a yes/no question and handles invalid input by asking for input again and again until entered a valid input
- * it accepts 'yes', 'y', 'no', or 'n'
- * Responds gracefully to invalid inputs
- * 
- * @param question the yes/no question to ask the user
- * @return true if the user answers 'yes' or 'y' and false if 'no' or 'n'
- */
-public static boolean getYesOrNo(String question){
-
-    //Loop for until valid input (yes/y, no/n) received
-    while(true){
-
-         //Prints the question for the user plus two answer options (yes/no)
-        System.out.println(question + "(yes/no):");
-
-        String input = scanner.nextLine();
-
-        //convert the input to lowercase letter
-        input = input.toLowerCase();
-
-        //Check if the input is yes
-        if (input.equals("yes") || input.equals("y")){
-            return true;
-
-        //Check if the input is no
-        } else if (input.equals("no") || input.equals("n")){
-            return false;
-        } else{
-
-            //Prints a message if invalid answer entered
-            System.out.println("Please answer with yes or no");
-        }
-    }
-}
-    //For testing purposes
-    public static void main(String[] args){
-
-        boolean answer = getYesOrNo("Is your animal a Crocodile?");
-        if (answer){
-            System.out.println("Wow that's cool.");
-        } else{
-            System.out.println("Hm, I see.");
-        }
-    }
-import java.util.Scanner;
-
-public class AnimalGuess {
-
-    /**
-     * handles responses to nonsensical inputs
-     * 
-     * @param input
-     * @return nothing
-     */
-    private static void handlingResponses(String input) {
-        // converts input to all lowercase
-        input.toLowerCase();
-        // if input doesn't equal yes or no, then ask player to reenter answer
-        if ((!input.equals("yes")) || (!input.equals("no"))) {
-            System.out.println("Please reenter your answer.");
-            // TO-DO: potentially redirect this code to the scanner in whichever method it
-            // is from/relevant
-            // call shakila's method that elicits a yes/no answer from user w/same question
-            // being asked
-        }
-    }
-
     /**
      * extends decision tree when program fails to guess correct animal
      * method occurs after program guesses and answer is no
@@ -117,7 +96,6 @@ public class AnimalGuess {
         // asks user what animal they were thinking of
         System.out.println("Oh no, I couldn't guess your animal! It's not a " + wrongAnimal + ".");
         System.out.println("What animal were you thinking of?");
-        Scanner scanner = new Scanner(System.in);
         String correctAnimal = scanner.nextLine();
 
         // asks user distinguishing question and sets the data of node to question
@@ -141,11 +119,19 @@ public class AnimalGuess {
             // BinaryTree<String> lChild = new BinaryTree<>(wrongAnimal);
             // otherwise, call handlingResponses method to handle nonsensical inputs
         } else {
-            handlingResponses(answer);
+            readLine(question);
         }
 
-        scanner.close();
+    }
 
+    //For testing purposes
+    public static void main(String[] args){
+        boolean answer = getYesOrNo("Is your animal a Crocodile?");
+        if (answer){
+            System.out.println("Wow that's cool.");
+        } else{
+            System.out.println("Hm, I see.");
+        }
     }
 
 }
