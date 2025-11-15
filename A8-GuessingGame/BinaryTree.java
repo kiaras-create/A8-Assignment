@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *  Implements binary trees.
  *
@@ -121,4 +125,6 @@ public class BinaryTree<E> {
             return "("+postorderString(t.left)+" "+postorderString(t.right)+" "+t.data+")";
         }
     }
+
+
 }
