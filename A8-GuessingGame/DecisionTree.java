@@ -75,33 +75,6 @@ public class DecisionTree extends BinaryTree<String>{
    }
 
 
-     //Sample decision tree with 7 nodes
-   /**
-    * @param args
-    */
-   public static void main(String[] args) {
-       DecisionTree cow = new DecisionTree("Cow");
-       DecisionTree pig = new DecisionTree("Pig");
-       DecisionTree snake = new DecisionTree("Snake");
-       DecisionTree lizard = new DecisionTree("Lizard");
-
-
-       DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, pig);
-       DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, lizard);
-
-
-       DecisionTree root = new DecisionTree("Is it a mammal?", hooves, reptile );
-
-
-
-
-       writeTree("Animal.txt", root);
-       readTree("Animal.txt", root);
-   }
-
-
-
-
    /**
     *
     * @param path
@@ -263,6 +236,31 @@ public static void writeTree(String fileName, BinaryTree<String> inputNode){
 
 
   }
+
+
+    //Sample decision tree with 7 nodes
+   /**
+    * @param args
+    */
+   public static void main(String[] args) {
+       DecisionTree cow = new DecisionTree("Cow");
+       DecisionTree pig = new DecisionTree("Pig");
+       DecisionTree snake = new DecisionTree("Snake");
+       DecisionTree lizard = new DecisionTree("Lizard");
+
+
+       DecisionTree hooves = new DecisionTree("Does it have hooves?", cow, pig);
+       DecisionTree reptile = new DecisionTree("Is it a reptile?", snake, lizard);
+
+
+       DecisionTree root = new DecisionTree("Is it a mammal?", hooves, reptile );
+
+
+
+
+       writeTree("Animal.txt", root);
+       readTree("Animal.txt", root);
+   }
 }
 
 
