@@ -15,24 +15,24 @@ _YES____ 1 pt: Class DecisionTree is a correctly designed subclass of BinaryTree
 
 __YES___ 1 pt: Method followPath correctly returns the indicated node of a decision tree
 
-_____ 2 pts: Plays a game that moves correctly through the tree to a guess
+__YES___ 2 pts: Plays a game that moves correctly through the tree to a guess
 
-_____ 2 pts: Correctly updates tree when user wins the game
+__YES___ 2 pts: Correctly updates tree when user wins the game
 
-_____ 1 pt: User interaction is clear & follows instructions
+__YES___ 1 pt: User interaction is clear & follows instructions
 
-_____ 1 pt: Implemented method to write tree correctly to file in breadth-first order
+_YES____ 1 pt: Implemented method to write tree correctly to file in breadth-first order
 
 __YES___ 1 pt: Implemented method to read tree correctly from file
 
-_____ 1 pt: Game plays using tree from file and updates it before exiting
+__YES___ 1 pt: Game plays using tree from file and updates it before exiting
 
 
 ## General Items:
 
 __YES___ 4 pts: Program compiles without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+_YES____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 __YES___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
