@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-
+/**
+ * Class which runs the animal guess and runs the game
+ */
 public class AnimalGuess {
 
 
@@ -154,6 +156,11 @@ public static boolean getYesOrNo(String question){
 
 
    //For testing purposes
+   /**
+    * 
+    * @param args arguments that will be passed in
+    * Main method to run the program
+    */
    public static void main(String[] args){
        String fileName = args[0];
 

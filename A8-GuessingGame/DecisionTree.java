@@ -8,7 +8,7 @@ public class DecisionTree extends BinaryTree<String> {
 
 
    /**
-    * @param data
+    * @param data root for the tree
     */
    public DecisionTree(String data) {
        super(data);
@@ -16,9 +16,9 @@ public class DecisionTree extends BinaryTree<String> {
 
 
    /**
-    * @param data
-    * @param left
-    * @param right
+    * @param data root for the tree
+    * @param left left nodes for the tree
+    * @param right right nodes for the tree
     */
    public DecisionTree(String data, BinaryTree<String> left, BinaryTree<String> right) {
        super(data, left, right);
@@ -26,26 +26,34 @@ public class DecisionTree extends BinaryTree<String> {
 
 
    /**
-    * @param other
-    */
+    * @param other decision tree object being passed in
+    */ 
    public DecisionTree(DecisionTree other) {
        super(other);
    }
 
 
    // overwriting specialized methods
+
+   /**
+    * Overwritting getLeft so it is usable in the decision tree class
+    */
    @Override
    public DecisionTree getLeft() {
        return (DecisionTree) super.getLeft();
    }
 
-
+   /**
+    * Overwritting getRight so it is usable in the decision tree class
+    */
    @Override
    public DecisionTree getRight() {
        return (DecisionTree) super.getRight();
    }
 
-
+   /**
+    * Overwritting setLeft so it can be implemented in decision tree
+    */
    @Override
    public void setLeft(BinaryTree<String> left) {
        super.setLeft(left);
@@ -53,13 +61,15 @@ public class DecisionTree extends BinaryTree<String> {
 
 
    /**
-    * @param left
+    * @param left data which will be added as the left node
     */
    public void setLeft(DecisionTree left) {
        super.setLeft(left);
    }
 
-
+   /**
+    * Overwritting getLeft so it can be implemented in decision tree
+    */
    @Override
    public void setRight(BinaryTree<String> right) {
        super.setRight(right);
@@ -67,7 +77,7 @@ public class DecisionTree extends BinaryTree<String> {
 
 
    /**
-    * @param right
+    * @param right data which will be added as the right node
     */
    public void setRight(DecisionTree right) {
        super.setRight(right);
@@ -76,9 +86,9 @@ public class DecisionTree extends BinaryTree<String> {
 
    /**
     *
-    * @param path
-    *             Moves through the tree and follows path
-    * @return current
+    * @param path path which will be taken to reach correct guess
+    * Moves through the tree and follows path
+    * @return current node at end of path
     */
    public DecisionTree followPath(String path) {
        DecisionTree current = this; // Start at root
@@ -98,7 +108,12 @@ public class DecisionTree extends BinaryTree<String> {
        return current;
    }
 
-
+/**
+ * 
+ * @param fileName name of file that is being writen
+ * Method will rewrite tree using breadth first search
+ * @param inputNode root of tree
+ */
    public static void writeTree(String fileName,DecisionTree inputNode) {
        // BinaryTree<String> current = this;
        // Create a node queue
@@ -148,7 +163,12 @@ public class DecisionTree extends BinaryTree<String> {
 
    }
 
-
+   /**
+    * 
+    * @param fileName of file which is being passed in
+    * Will read file and data accordingly
+    * @param root root of tree
+    */
    public static void readTree(String fileName, DecisionTree root) {
        try {
            Scanner file = new Scanner(new java.io.File(fileName));
@@ -216,6 +236,7 @@ public class DecisionTree extends BinaryTree<String> {
 
    // Sample decision tree with 7 nodes
    /**
+    * Sample decision tree for testing
     * @param args
     */
    public static void main(String[] args) {
